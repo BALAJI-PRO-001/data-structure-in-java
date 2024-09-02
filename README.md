@@ -61,3 +61,37 @@ Based on memory allocation, the Linear Data Structures are further classified in
 - Linked Lists
 - Stacks
 - Queues
+
+## Non-linear data structures
+Non-linear data structures are data structures where the data elements are not arranged sequentially. Instead, the elements are arranged in a hierarchical or interconnected manner. This allows for more complex relationships between elements and is useful for modeling various real-world problems.
+
+### Types of Non-Linear Data Structures:
+**Trees:**
+- Binary Tree
+- Binary Search Tree (BST)
+- AVL Tree
+- Red-Black Tree
+- B-Tree
+- B+ Tree
+- Trie (Prefix Tree)
+- Segment Tree
+- Fenwick Tree (Binary Indexed Tree)
+**Graphs:**
+- Undirected Graph
+- Directed Graph (Digraph)
+- Weighted Graph
+- Unweighted Graph
+- Cyclic Graph
+- Acyclic Graph (including Directed Acyclic Graphs or DAGs)
+
+## Basic Operations of Data Structures
+- **Traversal:** Access each data element exactly once.
+- **Search:** Find the location of data elements that meet certain criteria.
+- **Insertion:** Add new data elements to the structure.
+- **Deletion:** Remove a specific data element.
+- **Sorting:** Arrange data elements in ascending or descending order.
+- **Merge:** Combine elements from two sorted lists into one sorted list.
+- **Create:** Reserve memory for data elements.
+- **Selection:** Choose specific data based on conditions.
+- **Update:** Modify existing data elements.
+- **Splitting:** Divide data into smaller parts to improve efficiency.
