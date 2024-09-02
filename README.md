@@ -20,5 +20,6 @@ We can classify Data Structures into two categories:
 - These data structures can't be manipulated or operated directly by machine-level instructions.
 - The focus of these data structures is on forming a set of data elements that is either homogeneous (same data type) or heterogeneous (different data types).
 - Based on the structure and arrangement of data, we can divide these data structures into two sub-categories.
+  
   - **Linear Data Structures**
   - **Non-Linear Data Structures**
