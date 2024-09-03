@@ -1,5 +1,6 @@
 package array;
 
+import java.util.concurrent.ExecutionException;
 
 public class Array {
   private int size = 0;
@@ -7,6 +8,7 @@ public class Array {
   private int currentIndex = 0;
   private int initialCapacity = 0;
   
+
 
   public Array(int initialCapacity) {
     if (initialCapacity <= 0) {
@@ -16,17 +18,36 @@ public class Array {
     array = new int[initialCapacity];
   }
 
+
+
   private void checkIfArrayIsFull() {
     if (size == initialCapacity) {
       throw new IllegalStateException("Array is full. No more elements can be added.");
     }
   }
 
+
+
   private void checkIfArrayIsEmpty() {
     if (size == 0) {
       throw new IllegalStateException("Array is empty. Please add elements to the array.");
     }
   }
+
+
+
+  public void loadSampleElements() {
+    for (int i = 0; i < initialCapacity; i++) {
+      System.out.println("HI");
+      try {
+        Thread.sleep(1000);
+      } catch(Exception e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+
 
   public void insertBegin(int element) {
     checkIfArrayIsFull();
@@ -43,11 +64,15 @@ public class Array {
     }
   }
 
+
+
   public void insertLast(int element) {
     checkIfArrayIsFull();
     array[currentIndex++] = element;
     size++;
   }
+
+
 
   public void insertAtPosition(int position, int element) {
     checkIfArrayIsEmpty();
@@ -74,10 +99,14 @@ public class Array {
     size++;
   }
 
+
+
   public int size() {
     return this.size;
   }
 
+
+  
   public void print() {
     System.out.print("\nArray Elements: [ ");
     for (int i = 0; i < size; i++) {
@@ -85,6 +114,8 @@ public class Array {
     }
     System.out.print("]\n");
   }
+
+
 
   public void indexView() {
     if (size > 0) {
