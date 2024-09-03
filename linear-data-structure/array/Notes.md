@@ -38,3 +38,5 @@ In array, space complexity for worst case is **O(n)**.
 - Array is homogenous. It means that the elements with similar data type can be stored in it.
 - In array, there is static memory allocation that is size of an array cannot be altered.
 - There will be wastage of memory if we store less number of elements than the declared size.
+
+[More ....](https://www.javatpoint.com/data-structure-array)
