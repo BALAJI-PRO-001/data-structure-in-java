@@ -97,7 +97,7 @@ Non-linear data structures are data structures where the data elements are not a
 - **Splitting:** Divide data into smaller parts to improve efficiency.
 
 ## Correct Order to Study
-- **Array [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java) [[Readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/README.md) RootDir: /ds-in-java/array** 
+- **Array [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java) [[Readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/README.md)** 
 - **Linked List**
 - **Stack**
 - **Queue**
