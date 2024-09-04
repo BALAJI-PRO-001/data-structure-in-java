@@ -17,10 +17,10 @@ public class Main {
       System.out.println("=============================================================");
       System.out.println("\t\t\t   Array");
       System.out.println("============================================================="); 
-      System.out.println("Insert Begin    \t\t\t\t    Press: 1");
+      System.out.println("Insert First    \t\t\t\t    Press: 1");
       System.out.println("Insert Last    \t\t\t\t\t    Press: 2");
       System.out.println("Insert At Position    \t\t\t\t    Press: 3");
-      System.out.println("Delete Begin    \t\t\t\t    Press: 4");
+      System.out.println("Delete First    \t\t\t\t    Press: 4");
       System.out.println("Delete End    \t\t\t\t\t    Press: 5");
       System.out.println("Delete At Position    \t\t\t\t    Press: 6");
       System.out.println("Remove Element    \t\t\t\t    Press: 7");
@@ -74,7 +74,7 @@ public class Main {
         }
         case 4: {
           try {
-            array.deleteBegin();
+            array.deleteFirst();
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");

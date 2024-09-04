@@ -81,7 +81,7 @@ public class Array {
     checkIfValidPosition(position);
     
     if (position == 0) {
-      insertBegin(element);
+      insertFirst(element);
       return;
     }
 
@@ -94,7 +94,7 @@ public class Array {
 
 
 
-  public int deleteBegin() {
+  public int deleteFirst() {
     checkIfArrayIsEmpty();
     int element = array[0];
     for (int i = 0; i < size - 1; i++) {
@@ -120,7 +120,7 @@ public class Array {
     checkIfValidPosition(position);
 
     if (position == 0) {
-      return deleteBegin();
+      return deleteFirst();
     }
 
     if (position == size - 1) {
