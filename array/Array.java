@@ -1,7 +1,5 @@
 package array;
 
-import java.util.concurrent.ExecutionException;
-
 public class Array {
   private int size = 0;
   private int[] array;
@@ -91,12 +89,34 @@ public class Array {
       return;
     }
 
-    for (int i = size - 1; i >= position; i--) {
+    for (int i = size - 1; i > position; i--) {
       array[i] = array[i - 1];
     }
     array[position] = element;
     currentIndex++;
     size++;
+  }
+
+
+
+  public int deleteBegin() {
+    checkIfArrayIsEmpty();
+    int element = array[0];
+    for (int i = 0; i < size; i++) {
+      array[i] = array[i + 1];
+    }
+    currentIndex --;
+    size --;
+    return element;
+  }
+
+
+  
+  public int deleteLast() {
+    checkIfArrayIsEmpty();
+    size--;
+    System.out.println(currentIndex);
+    return array[currentIndex--];
   }
 
 
