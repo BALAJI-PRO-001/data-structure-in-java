@@ -1,3 +1,6 @@
+# FILE TO EXECUTE: Main.java
+# FILE TO STUDY: Array.java
+---
 # Array in Data Structure 
 Arrays are defined as the collection of similar types of data items stored at contiguous memory locations. It is one of the simplest data structures where each data element can be randomly accessed by using its index number.
 
