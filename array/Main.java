@@ -75,7 +75,7 @@ public class Main {
         case 4: {
           try {
             array.deleteFirst();
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalStateException  e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -85,7 +85,7 @@ public class Main {
         case 5: {
           try {
             array.deleteLast();
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -107,7 +107,7 @@ public class Main {
           try {
             int element = getInput("\nEnter Element: ");
             array.removeElement(element);
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalStateException  e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -115,29 +115,17 @@ public class Main {
           break;
         }
         case 8: {
-          try {
-            int element = getInput("\nEnter Element: ");
-            int index = array.indexOf(element);
-            System.out.print("\nIndex: " + index);
-            System.out.print("\nPress any key to exit: ");
-            scanner.next();
-          } catch(IllegalStateException | IllegalArgumentException e) {
-            System.out.println("\nMessage: " + e.getMessage());
-            System.out.print("Press any key to exit: ");
-            scanner.next();
-          }
+          int element = getInput("\nEnter Element: ");
+          int index = array.indexOf(element);
+          System.out.print("\nIndex: " + index);
+          System.out.print("\nPress any key to exit: ");
+          scanner.next();
           break;
         }
         case 9: {
-          try {
-            int target = getInput("\nEnter Target Element: ");
-            int newElement = getInput("Enter New Element: ");
-            array.replace(target, newElement);
-          } catch(IllegalStateException | IllegalArgumentException e) {
-            System.out.println("\nMessage: " + e.getMessage());
-            System.out.print("Press any key to exit: ");
-            scanner.next();
-          }
+          int target = getInput("\nEnter Target Element: ");
+          int newElement = getInput("Enter New Element: ");
+          array.replace(target, newElement);         
           break;
         }
         case 10: {
