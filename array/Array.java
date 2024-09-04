@@ -51,7 +51,7 @@ public class Array {
 
 
 
-  public void insertBegin(int element) {
+  public void insertFirst(int element) {
     checkIfArrayIsFull();
     if (size == 0) {
       array[0] = element;
