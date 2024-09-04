@@ -1,9 +1,9 @@
 package array;
+import java.util.Random;
 
 public class Array {
   private int size = 0;
   private int[] array;
-  private int currentIndex = 0;
   private int initialCapacity = 0;
   
 
@@ -33,15 +33,19 @@ public class Array {
   }
 
 
+  private void checkIfValidPosition(int position) {
+    if (position < 0 || position > size) {
+      throw new IllegalArgumentException("Invalid position. Position must be between 0 and " + size + ".");
+    }  
+  }
+
+
 
   public void loadSampleElements() {
-    for (int i = 0; i < initialCapacity; i++) {
-      System.out.println("HI");
-      try {
-        Thread.sleep(1000);
-      } catch(Exception e) {
-        e.printStackTrace();
-      }
+    Random random = new Random();
+    for (int i = size; i < initialCapacity; i++) {
+      array[i] = random.nextInt(1000 - 100 + 1) + 100;
+      size++;
     }
   }
 
@@ -50,14 +54,13 @@ public class Array {
   public void insertBegin(int element) {
     checkIfArrayIsFull();
     if (size == 0) {
-      array[currentIndex++] = element;
+      array[0] = element;
       size++;
     } else {
       for (int i = initialCapacity - 1; i > 0; i--) {
         array[i] = array[i - 1];
       }
       array[0] = element;
-      currentIndex++;
       size++;
     }
   }
@@ -66,7 +69,7 @@ public class Array {
 
   public void insertLast(int element) {
     checkIfArrayIsFull();
-    array[currentIndex++] = element;
+    array[size] = element;
     size++;
   }
 
@@ -75,9 +78,7 @@ public class Array {
   public void insertAtPosition(int position, int element) {
     checkIfArrayIsEmpty();
     checkIfArrayIsFull();
-    if (position < 0 || position > size) {
-      throw new IllegalArgumentException("Position must be between 0 and " + size + ".");
-    }   
+    checkIfValidPosition(position);
     
     if (position == 0) {
       insertBegin(element);
@@ -89,11 +90,10 @@ public class Array {
       return;
     }
 
-    for (int i = size - 1; i > position; i--) {
+    for (int i = initialCapacity - 1; i > position; i--) {
       array[i] = array[i - 1];
     }
     array[position] = element;
-    currentIndex++;
     size++;
   }
 
@@ -102,10 +102,9 @@ public class Array {
   public int deleteBegin() {
     checkIfArrayIsEmpty();
     int element = array[0];
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size - 1; i++) {
       array[i] = array[i + 1];
     }
-    currentIndex --;
     size --;
     return element;
   }
@@ -114,9 +113,9 @@ public class Array {
   
   public int deleteLast() {
     checkIfArrayIsEmpty();
+    int element = size - 1;
     size--;
-    System.out.println(currentIndex);
-    return array[currentIndex--];
+    return element;
   }
 
 
