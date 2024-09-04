@@ -33,9 +33,9 @@ public class Array {
   }
 
 
-  private void checkIfValidPosition(int position) {
-    if (position < 0 || position >= size) {
-      throw new IllegalArgumentException("Invalid position. Position must be between 0 and " + (size - 1) + ".");
+  private void validateIndex(int index) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Invalid index. Index must be between 0 and " + (size - 1) + ".");
     }  
   }
 
@@ -75,20 +75,20 @@ public class Array {
 
 
 
-  public void insertAtPosition(int position, int element) {
+  public void insertAtPosition(int index, int element) {
     checkIfArrayIsEmpty();
     checkIfArrayIsFull();
-    checkIfValidPosition(position);
+    validateIndex(index);
     
-    if (position == 0) {
+    if (index == 0) {
       insertFirst(element);
       return;
     }
 
-    for (int i = initialCapacity - 1; i > position; i--) {
+    for (int i = initialCapacity - 1; i > index; i--) {
       array[i] = array[i - 1];
     }
-    array[position] = element;
+    array[index] = element;
     size++;
   }
 
