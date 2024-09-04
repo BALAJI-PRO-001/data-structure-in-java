@@ -34,8 +34,8 @@ public class Array {
 
 
   private void checkIfValidPosition(int position) {
-    if (position < 0 || position > size) {
-      throw new IllegalArgumentException("Invalid position. Position must be between 0 and " + size + ".");
+    if (position < 0 || position >= size) {
+      throw new IllegalArgumentException("Invalid position. Position must be between 0 and " + (size - 1) + ".");
     }  
   }
 
@@ -85,11 +85,6 @@ public class Array {
       return;
     }
 
-    if (position == size) {
-      insertLast(element);
-      return;
-    }
-
     for (int i = initialCapacity - 1; i > position; i--) {
       array[i] = array[i - 1];
     }
@@ -113,9 +108,60 @@ public class Array {
   
   public int deleteLast() {
     checkIfArrayIsEmpty();
-    int element = size - 1;
+    int element = array[size - 1];
     size--;
     return element;
+  }
+
+
+
+  public int deleteAtPosition(int position) {
+    checkIfArrayIsEmpty();
+    checkIfValidPosition(position);
+
+    if (position == 0) {
+      return deleteBegin();
+    }
+
+    if (position == size - 1) {
+      return deleteLast();
+    } 
+
+    int element = array[position];
+    size--;
+    for (int i = position; i < initialCapacity - 1; i++) {
+      array[i] = array[i + 1];
+    }
+
+    return element;
+  }
+
+
+  public int indexOf(int element) {
+    checkIfArrayIsEmpty();
+    for (int i = 0; i < size; i++) {
+      if (array[i] == element) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+
+  public int removeElement(int element) {
+    checkIfArrayIsEmpty();
+    int index = indexOf(element);
+    if (index == -1) return -1;
+    return deleteAtPosition(index);
+  }
+
+
+  
+  public void replace(int target, int newElement) {
+    checkIfArrayIsEmpty();
+    int index = indexOf(target);
+    if (index == -1) return;
+    array[index] = newElement;
   }
 
 

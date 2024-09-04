@@ -26,7 +26,8 @@ public class Main {
       System.out.println("Remove Element    \t\t\t\t    Press: 7");
       System.out.println("Find Index    \t\t\t\t\t    Press: 8");
       System.out.println("Replace Element    \t\t\t\t    Press: 9");
-      System.out.println("Exit    \t\t\t\t\t    Press: 10");
+      System.out.println("Load Sample Elements    \t\t\t    Press: 10");
+      System.out.println("Exit    \t\t\t\t\t    Press: 11");
       System.out.println("============================================================="); 
       array.print();
       array.indexView();
@@ -61,7 +62,7 @@ public class Main {
         }
         case 3: {
           try {
-            int position = getInput("\nEnter Position: ");
+            int position = getInput("\nEnter Index: ");
             int element = getInput("Enter Element: ");
             array.insertAtPosition(position, element);
           } catch(IllegalStateException | IllegalArgumentException e) {
@@ -71,7 +72,79 @@ public class Main {
           }
           break;
         }
+        case 4: {
+          try {
+            array.deleteBegin();
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        }
+        case 5: {
+          try {
+            array.deleteLast();
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        } 
+        case 6: {
+          try {
+            int position = getInput("\nEnter Index: ");
+            array.deleteAtPosition(position);
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        } 
+        case 7: {
+          try {
+            int element = getInput("\nEnter Element: ");
+            array.removeElement(element);
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        }
+        case 8: {
+          try {
+            int element = getInput("\nEnter Element: ");
+            int index = array.indexOf(element);
+            System.out.print("\nIndex: " + index);
+            System.out.print("\nPress any key to exit: ");
+            scanner.next();
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        }
+        case 9: {
+          try {
+            int target = getInput("\nEnter Target Element: ");
+            int newElement = getInput("Enter New Element: ");
+            array.replace(target, newElement);
+          } catch(IllegalStateException | IllegalArgumentException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
+          break;
+        }
         case 10: {
+          array.loadSampleElements();
+          break;
+        }
+        case 11: {
           System.exit(0);
           break;
         }
