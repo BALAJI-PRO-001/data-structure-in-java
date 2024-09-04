@@ -75,7 +75,7 @@ public class Array {
 
 
 
-  public void insertAtPosition(int index, int element) {
+  public void insertAtIndex(int index, int element) {
     checkIfArrayIsEmpty();
     checkIfArrayIsFull();
     validateIndex(index);
@@ -115,21 +115,21 @@ public class Array {
 
 
 
-  public int deleteAtPosition(int position) {
+  public int deleteAtIndex(int index) {
     checkIfArrayIsEmpty();
-    checkIfValidPosition(position);
+    validateIndex(index);
 
-    if (position == 0) {
+    if (index == 0) {
       return deleteFirst();
     }
 
-    if (position == size - 1) {
+    if (index == size - 1) {
       return deleteLast();
     } 
 
-    int element = array[position];
+    int element = array[index];
     size--;
-    for (int i = position; i < initialCapacity - 1; i++) {
+    for (int i = index; i < initialCapacity - 1; i++) {
       array[i] = array[i + 1];
     }
 
@@ -152,7 +152,7 @@ public class Array {
     checkIfArrayIsEmpty();
     int index = indexOf(element);
     if (index == -1) return -1;
-    return deleteAtPosition(index);
+    return deleteAtIndex(index);
   }
 
 

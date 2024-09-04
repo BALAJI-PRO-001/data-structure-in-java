@@ -19,10 +19,10 @@ public class Main {
       System.out.println("============================================================="); 
       System.out.println("Insert First    \t\t\t\t    Press: 1");
       System.out.println("Insert Last    \t\t\t\t\t    Press: 2");
-      System.out.println("Insert At Position    \t\t\t\t    Press: 3");
+      System.out.println("Insert At Index    \t\t\t\t    Press: 3");
       System.out.println("Delete First    \t\t\t\t    Press: 4");
       System.out.println("Delete End    \t\t\t\t\t    Press: 5");
-      System.out.println("Delete At Position    \t\t\t\t    Press: 6");
+      System.out.println("Delete At Index    \t\t\t\t    Press: 6");
       System.out.println("Remove Element    \t\t\t\t    Press: 7");
       System.out.println("Find Index    \t\t\t\t\t    Press: 8");
       System.out.println("Replace Element    \t\t\t\t    Press: 9");
@@ -62,9 +62,9 @@ public class Main {
         }
         case 3: {
           try {
-            int position = getInput("\nEnter Index: ");
+            int index = getInput("\nEnter Index: ");
             int element = getInput("Enter Element: ");
-            array.insertAtPosition(position, element);
+            array.insertAtIndex(index, element);
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -94,8 +94,8 @@ public class Main {
         } 
         case 6: {
           try {
-            int position = getInput("\nEnter Index: ");
-            array.deleteAtPosition(position);
+            int index = getInput("\nEnter Index: ");
+            array.deleteAtIndex(index);
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
