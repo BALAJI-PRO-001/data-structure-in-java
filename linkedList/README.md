@@ -12,3 +12,30 @@ Linked list is a linear data structure that includes a series of connected nodes
 - **Circular singly linked list** - In a circular singly linked list, the last node of the list contains a pointer to the first node of the list. We can have circular singly linked list as well as circular doubly linked list.
 
 - **Circular doubly linked list** - Circular doubly linked list is a more complex type of data structure in which a node contains pointers to its previous node as well as the next node. Circular doubly linked list doesn't contain NULL in any of the nodes. The last node of the list contains the address of the first node of the list. The first node of the list also contains the address of the last node in its previous pointer.
+
+## Advantages of Linked list
+- **Dynamic data structure** - The size of the linked list may vary according to the requirements. Linked list does not have a fixed size.
+- **Insertion and deletion** - Unlike arrays, insertion, and deletion in linked list is easier. Array elements are stored in the consecutive location, whereas the elements in the linked list are stored at a random location. To insert or delete an element in an array, we have to shift the elements for creating the space. Whereas, in linked list, instead of shifting, we just have to update the address of the pointer of the node.
+- **Memory efficient** - The size of a linked list can grow or shrink according to the requirements, so memory consumption in linked list is efficient.
+- **Implementation** - We can implement both stacks and queues using linked list.
+
+## Disadvantages of Linked list
+- **Memory usage** - In linked list, node occupies more memory than array. Each node of the linked list occupies two types of variables, i.e., one is a simple variable, and another one is the pointer variable.
+- **Traversal** - Traversal is not easy in the linked list. If we have to access an element in the linked list, we cannot access it randomly, while in case of array we can randomly access it by index. For example, if we want to access the 3rd node, then we need to traverse all the nodes before it. So, the time required to access a particular node is large.
+- **Reverse traversing** - Backtracking or reverse traversing is difficult in a linked list. In a doubly-linked list, it is easier but requires more memory to store the back pointer.
+
+## Time Complexity
+| Operations  | Average Case Time Complexity | Worst-Case Time Complexity |
+|-------------|------------------------------|----------------------------|
+| Insertion   | O(1)                          | O(1)                        |
+| Deletion    | O(1)                          | O(1)                        |
+| Search      | O(n)                          | O(n)                        |
+
+## Space Complexity
+| Operations | Space Complexity |
+|------------|------------------|
+| Insertion  | O(n)             |
+| Deletion   | O(n)             |
+| Search     | O(n)             |
+
+[More ...](https://www.javatpoint.com/ds-linked-list)
