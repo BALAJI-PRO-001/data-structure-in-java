@@ -13,5 +13,5 @@ One way chain or singly linked list can be traversed only in one direction. In o
 | Deletion    | θ(1)                    | O(1)                   | O(1)                   |
 
 
-### File To Execute: [Main.java](linkedList/singlyLinkedList/Main.java)
-### File To Study: [SinglyLinkedList.java](linkedList/singlyLinkedList/SinglyLinkedList.java)
+### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/singlyLinkedList/Main.java)
+### File To Study: [SinglyLinkedList.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/singlyLinkedList/SinglyLinkedList.java)
