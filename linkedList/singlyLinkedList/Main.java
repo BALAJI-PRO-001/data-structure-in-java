@@ -1,6 +1,7 @@
 package linkedList.singlyLinkedList;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
   private static Scanner scanner = new Scanner(System.in);
@@ -21,11 +22,12 @@ public class Main {
       System.out.println("Delete First    \t\t\t\t    Press: 4");
       System.out.println("Delete End    \t\t\t\t\t    Press: 5");
       System.out.println("Delete At Index    \t\t\t\t    Press: 6");
-      System.out.println("Remove Element    \t\t\t\t    Press: 7");
-      System.out.println("Find Index    \t\t\t\t\t    Press: 8");
-      System.out.println("Replace Element    \t\t\t\t    Press: 9");
-      System.out.println("Load Sample Elements    \t\t\t    Press: 10");
-      System.out.println("Exit    \t\t\t\t\t    Press: 11");
+      System.out.println("Clear List    \t\t\t\t\t    Press: 7");
+      System.out.println("Remove Element    \t\t\t\t    Press: 8");
+      System.out.println("Find Index    \t\t\t\t\t    Press: 9");
+      System.out.println("Replace Element    \t\t\t\t    Press: 10");
+      System.out.println("Load Sample Elements    \t\t\t    Press: 11");
+      System.out.println("Exit    \t\t\t\t\t    Press: 12");
       System.out.println("============================================================="); 
       list.print();
       list.indexView();
@@ -37,25 +39,13 @@ public class Main {
 
       switch (choice) {
         case 1: {
-          try {
-            int element = getInput("\nEnter Element: ");
-            list.insertFirst(element);
-          } catch(IllegalStateException e) {
-            System.out.println("\nMessage: " + e.getMessage());
-            System.out.print("Press any key to exit: ");
-            scanner.next();
-          }
+          int element = getInput("\nEnter Element: ");
+          list.insertFirst(element);
           break;
         } 
         case 2: {
-          try {
-            int element = getInput("\nEnter Element: ");
-            list.insertLast(element);
-          } catch(IllegalStateException e) {
-            System.out.println("\nMessage: " + e.getMessage());
-            System.out.print("Press any key to exit: ");
-            scanner.next();
-          }
+          int element = getInput("\nEnter Element: ");
+          list.insertLast(element);          
           break;
         }
         case 3: {
@@ -63,7 +53,7 @@ public class Main {
             int index = getInput("\nEnter Index: ");
             int element = getInput("Enter Element: ");
             list.insertAtIndex(index, element);
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -82,7 +72,7 @@ public class Main {
         }
         case 5: {
           try {
-            // array.deleteLast();
+            list.deleteLast();
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -92,8 +82,8 @@ public class Main {
         } 
         case 6: {
           try {
-            int position = getInput("\nEnter Index: ");
-            // array.deleteAtPosition(position);
+            int index = getInput("\nEnter Index: ");
+            list.deleteAtIndex(index);
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -102,24 +92,14 @@ public class Main {
           break;
         } 
         case 7: {
-          try {
-            int element = getInput("\nEnter Element: ");
-            // array.removeElement(element);
-          } catch(IllegalStateException | IllegalArgumentException e) {
-            System.out.println("\nMessage: " + e.getMessage());
-            System.out.print("Press any key to exit: ");
-            scanner.next();
-          }
+          list.clear();
           break;
         }
         case 8: {
           try {
             int element = getInput("\nEnter Element: ");
-            // int index = array.indexOf(element);
-            // System.out.print("\nIndex: " + index);
-            System.out.print("\nPress any key to exit: ");
-            scanner.next();
-          } catch(IllegalStateException | IllegalArgumentException e) {
+            list.removeElement(element);
+          } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -128,9 +108,10 @@ public class Main {
         }
         case 9: {
           try {
-            int target = getInput("\nEnter Target Element: ");
-            int newElement = getInput("Enter New Element: ");
-            // array.replace(target, newElement);
+            int element = getInput("\nEnter Element: ");
+            System.out.println("Index: " + list.indexOf(element));
+            System.out.print("Press any key to exit: ");
+            scanner.next();
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -139,7 +120,10 @@ public class Main {
           break;
         }
         case 10: {
-          // array.loadSampleElements();
+          Random random = new Random();
+          for (int i = 1; i <= 5; i++) {
+            list.insertLast(random.nextInt(1000 - 100 + 1) + 100);
+          }
           break;
         }
         case 11: {

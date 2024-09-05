@@ -30,6 +30,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     }
   }
 
+
   private void checkIfListIsEmpty() {
     if (size == 0) {
       throw new IllegalStateException("List is empty. Please add elements to the list.");
@@ -78,9 +79,10 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     Node newNode = new Node(element);
 
     while (tempNode != null) {
-      preNode = tempNode;
-      if (i == index) 
+      if (i == index) {
         break;
+      }
+      preNode = tempNode;
       tempNode = tempNode.nextNode;
       i++;
     }
@@ -100,12 +102,88 @@ public class SinglyLinkedList<T> implements Iterable<T> {
   }
 
 
+  public T deleteLast() {
+    checkIfListIsEmpty();
+    Node preNode = headNode;
 
-  // public T deleteLast() {
-  //   checkIfListIsEmpty();
-  //   T element = lastNode.data;
-    
-  // }
+    if (size == 1) {
+      T element = headNode.data;
+      headNode = null;
+      lastNode = null;
+      return element;
+    }
+
+    int i = 0;
+    while (true) {
+      if (i == (size - 2)) {
+        break;
+      }
+      preNode = preNode.nextNode;
+      i++;
+    }
+    T element = lastNode.data;
+    preNode.nextNode = null;
+    lastNode = preNode;
+    size--;
+    return element;
+  }
+
+
+  public T deleteAtIndex(int index) {
+    checkIfListIsEmpty();
+    validateIndex(index);
+
+    if (index == 0) {
+      return deleteFirst();
+    }
+
+    if (index == (size - 1)) {
+      return deleteLast();
+    }
+
+    int i = 0;
+    Node preNode = headNode;
+    while (true) {
+      if (i == (index - 1)) {
+        break;
+      }
+      preNode = preNode.nextNode;
+      i++;
+    }
+  
+    T element = preNode.nextNode.data;
+    preNode.nextNode = preNode.nextNode.nextNode;
+    size--;
+    return element;
+  }
+
+
+  public void clear() {
+    headNode = null;
+    lastNode = null;
+    size = 0;
+  }
+
+
+  public T removeElement(T element) {
+    int index = indexOf(element);
+    if (index == -1) return null;
+    return deleteAtIndex(index);
+  }
+
+
+  public int indexOf(T element) {
+    Node tempNode = headNode;
+    int index = 0;
+    while (tempNode != null) {
+      if (tempNode.data == element) {
+        return index;
+      }
+      tempNode = tempNode.nextNode;
+      index++;
+    }
+    return -1;
+  }
 
 
   public int size() {
