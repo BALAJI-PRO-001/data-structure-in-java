@@ -120,13 +120,19 @@ public class Main {
           break;
         }
         case 10: {
+          int target = getInput("\nEnter Target Element: ");
+          int newElement = getInput("Enter New Element: ");
+          list.replaceElement(target, newElement);
+          break;
+        }
+        case 11: {
           Random random = new Random();
           for (int i = 1; i <= 5; i++) {
             list.insertLast(random.nextInt(1000 - 100 + 1) + 100);
           }
           break;
         }
-        case 11: {
+        case 12: {
           System.exit(0);
           break;
         }

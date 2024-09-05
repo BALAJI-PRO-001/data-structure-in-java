@@ -74,21 +74,19 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     }
 
     int i = 0;
-    Node tempNode = headNode;
-    Node preNode = null;
+    Node preNode = headNode;
     Node newNode = new Node(element);
 
-    while (tempNode != null) {
-      if (i == index) {
+    while (true) {
+      if (i == (index - 1)) {
         break;
       }
-      preNode = tempNode;
-      tempNode = tempNode.nextNode;
+      preNode = preNode.nextNode;
       i++;
     }
 
+    newNode.nextNode = preNode.nextNode;
     preNode.nextNode = newNode;
-    newNode.nextNode = tempNode;
   }
 
 
@@ -176,13 +174,31 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     Node tempNode = headNode;
     int index = 0;
     while (tempNode != null) {
-      if (tempNode.data == element) {
+      if (tempNode.data.equals(element)) {
         return index;
       }
       tempNode = tempNode.nextNode;
       index++;
     }
     return -1;
+  }
+
+
+
+  public void replaceElement(T target, T newElement) {
+    Node tempNode = headNode;
+    while (tempNode != null) {
+      if (tempNode.data.equals(target)) {
+        tempNode.data = newElement;
+        return;
+      }
+      tempNode = tempNode.nextNode;
+    }
+  }
+
+
+  public void reverse() {
+  
   }
 
 
