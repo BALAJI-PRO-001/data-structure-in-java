@@ -1,7 +1,3 @@
----
-### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Main.java)
-### File To Study: [Array.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java)
----
 # Array in Data Structure 
 Arrays are defined as the collection of similar types of data items stored at contiguous memory locations. It is one of the simplest data structures where each data element can be randomly accessed by using its index number.
 
@@ -42,5 +38,10 @@ In array, space complexity for worst case is **O(n)**.
 - Array is homogenous. It means that the elements with similar data type can be stored in it.
 - In array, there is static memory allocation that is size of an array cannot be altered.
 - There will be wastage of memory if we store less number of elements than the declared size.
+
+
+### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Main.java)
+### File To Study: [Array.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java)
+
 
 [More ....](https://www.javatpoint.com/data-structure-array)
