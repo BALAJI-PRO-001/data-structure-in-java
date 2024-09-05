@@ -2,6 +2,7 @@ package array;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
   private static int initialCapacity = 5;
@@ -129,7 +130,10 @@ public class Main {
           break;
         }
         case 10: {
-          array.loadSampleElements();
+          Random random = new Random();
+          for (int i = array.size(); i < initialCapacity; i++) {
+            array.insertLast(random.nextInt(1000 - 100 + 1) + 100); 
+          }
           break;
         }
         case 11: {

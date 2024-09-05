@@ -1,5 +1,5 @@
 package array;
-import java.util.Random;
+
 
 public class Array {
   private int size = 0;
@@ -38,17 +38,6 @@ public class Array {
       throw new IllegalArgumentException("Invalid index. Index must be between 0 and " + (size - 1) + ".");
     }  
   }
-
-
-
-  public void loadSampleElements() {
-    Random random = new Random();
-    for (int i = size; i < initialCapacity; i++) {
-      array[i] = random.nextInt(1000 - 100 + 1) + 100;
-      size++;
-    }
-  }
-
 
 
   public void insertFirst(int element) {
