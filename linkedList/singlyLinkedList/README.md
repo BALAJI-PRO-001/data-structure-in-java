@@ -11,3 +11,7 @@ One way chain or singly linked list can be traversed only in one direction. In o
 | Search      | θ(n)                    | O(n)                   | O(n)                   |
 | Insertion   | θ(1)                    | O(1)                   | O(1)                   |
 | Deletion    | θ(1)                    | O(1)                   | O(1)                   |
+
+
+### File To Execute: [Main.java](linkedList/singlyLinkedList/Main.java)
+### File To Study: [SinglyLinkedList.java](linkedList/singlyLinkedList/SinglyLinkedList.java)
