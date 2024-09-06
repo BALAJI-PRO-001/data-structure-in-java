@@ -216,9 +216,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public int getSize() {
-    if (this.size == 0) 
-      return 0;
-
     int size = 0;
     Node tempNode = headNode;
     while (tempNode != null) {
@@ -233,10 +230,14 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     System.out.print("\nList Elements: [ ");
     Node tempNode = headNode;
     while (tempNode != null) {
-      System.out.print(tempNode.data + " ");
+      System.out.print(tempNode.data);
       tempNode = tempNode.nextNode;
+
+      if (tempNode != null) {
+        System.out.print(", ");
+      }
     }
-    System.out.println("]");
+    System.out.println(" ]");
   }
 
 
