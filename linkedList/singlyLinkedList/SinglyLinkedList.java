@@ -44,9 +44,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
       headNode = newNode;
       lastNode = newNode;
     } else {
-      Node tempNode = headNode;
-      newNode.nextNode = tempNode;
-      lastNode = tempNode;
+      newNode.nextNode = headNode;
+      lastNode = newNode.nextNode;
       headNode = newNode;
     }
   }
