@@ -5,6 +5,8 @@ A Singly Linked List (SLL) is a linear data structure where each element (node) 
 
 The first node in the list is called the head, and the last node points to null, indicating the end of the list.
 
+![image](https://raw.githubusercontent.com/BALAJI-PRO-001/data-structure-in-java/main/images/dll.png)
+
 ### Usage of Doubly Linked List
 - Efficient traversal in both directions (forward and backward) is required.
 - Frequent insertions and deletions are needed at both ends (head and tail) or in the middle of the list.
