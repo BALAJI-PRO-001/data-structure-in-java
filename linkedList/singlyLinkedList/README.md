@@ -3,7 +3,7 @@ Singly linked list can be defined as the collection of ordered set of elements. 
 One way chain or singly linked list can be traversed only in one direction. In other words, we can say that each node contains only next pointer, therefore we can not traverse the list in the reverse direction. 
 
 ![image](https://raw.githubusercontent.com/BALAJI-PRO-001/data-structure-in-java/main/images/node-img.png)
-![image](![image](https://raw.githubusercontent.com/BALAJI-PRO-001/data-structure-in-java/main/images/sll-img.png))
+![image](https://raw.githubusercontent.com/BALAJI-PRO-001/data-structure-in-java/main/images/sll-img.png)
 
 ## Usage of Singly Linked List
 - Dynamic memory allocation is preferred over static arrays.
