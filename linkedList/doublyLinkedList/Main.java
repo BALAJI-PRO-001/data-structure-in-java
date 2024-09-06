@@ -30,8 +30,8 @@ public class Main {
       System.out.println("Load Sample Elements    \t\t\t    Press: 12");
       System.out.println("Exit    \t\t\t\t\t    Press: 13");
       System.out.println("============================================================="); 
-      list.print();
-      list.indexView();
+      list.print(false);
+      list.print(true);
       System.out.println("\nSize: " + list.size() + "\t\tSize: " + list.getSize() + "  (Using Loop)");
       System.out.println("\n============================================================="); 
 
