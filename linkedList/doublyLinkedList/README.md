@@ -21,3 +21,16 @@ The first node in the list is called the head, and the last node points to null,
 - **Complexity in Implementation:** Maintaining the correct links between nodes during insertion and deletion operations is more complex in a doubly linked list compared to a singly linked list. The risk of errors like memory leaks or dangling pointers is higher.
 - **Slower Operations:** While traversal in both directions is possible, the additional pointers mean that each node requires more time to allocate and manage. This can make operations slightly slower compared to singly linked lists.
 - **Extra Handling for Edge Cases:** Special care is required to handle cases like inserting or deleting at the head or tail of the list, and keeping track of both next and previous pointers, which adds to the complexity.
+
+## Complexity
+
+| Operation | Average Time Complexity | Worst Time Complexity | Worst Space Complexity |
+|-----------|-------------------------|-----------------------|------------------------|
+| **Access**   | θ(n)                     | O(n)                   | O(n)                    |
+| **Search**   | θ(n)                     | O(n)                   | O(n)                    |
+| **Insertion**| θ(1)                     | O(1)                   | O(1)                    |
+| **Deletion** | θ(1)                     | O(1)                   | O(1)   
+
+
+#### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/Main.java)
+#### File To Study: [SinglyLinkedList.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/DoublyLinkedList.java)
