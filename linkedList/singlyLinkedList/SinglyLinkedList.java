@@ -198,7 +198,16 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void reverse() {
-  
+    Node currentNode = headNode;
+    Node preNode = null;
+    Node nextNode = null;
+    while (currentNode != null) {
+      nextNode = currentNode.nextNode;
+      currentNode.nextNode = preNode;
+      preNode = currentNode;
+      currentNode = nextNode;
+    }
+    headNode = preNode;
   }
 
 
