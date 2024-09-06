@@ -241,19 +241,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
   }
 
 
-  public void indexView() {
-    if (headNode != null) {
-      Node tempNode = headNode;
-      int index = 0;
-      System.out.println();
-      while (tempNode != null) {
-        System.out.println("Index: " + (index++) + " Element: " + tempNode.data);
-        tempNode = tempNode.nextNode;
-      }
-    }
-  }
-
-
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {

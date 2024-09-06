@@ -31,7 +31,11 @@ public class Main {
       System.out.println("Exit    \t\t\t\t\t    Press: 13");
       System.out.println("============================================================="); 
       list.print();
-      list.indexView();
+      System.out.println();
+      int listIndex = 0;
+      for (int element : list) {
+        System.out.println("Index: " + (listIndex++) + " Element: " + element);
+      }
       System.out.println("\nSize: " + list.size() + "\t\tSize: " + list.getSize() + "  (Using Loop)");
       System.out.println("\n============================================================="); 
 
