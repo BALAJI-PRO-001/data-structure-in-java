@@ -3,7 +3,7 @@ package linkedList.doublyLinkedList;
 import java.util.Iterator;
 
 public class DoublyLinkedList<T> implements Iterable<T>{
-  private Node headNode, lastNode;
+  private Node headNode, tailNode;
   private int size = 0;
   
 
@@ -23,7 +23,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public DoublyLinkedList() {
     headNode = null;
-    lastNode = null;
+    tailNode = null;
   }
 
 
@@ -45,7 +45,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
-      lastNode = newNode;
+      tailNode = newNode;
     } else {
       headNode.prevNode = newNode;
       newNode.nextNode = headNode;
@@ -58,11 +58,11 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
-      lastNode = newNode;
+      tailNode = newNode;
     } else {
-      lastNode.nextNode = newNode;
-      newNode.prevNode = lastNode;
-      lastNode = newNode;
+      tailNode.nextNode = newNode;
+      newNode.prevNode = tailNode;
+      tailNode = newNode;
     }
   }
 
@@ -102,7 +102,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
     if (size == 1) {
       headNode = null;
-      lastNode = null;
+      tailNode = null;
       size = 0;
       return element;
     }
@@ -116,17 +116,17 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T deleteLast() {
     checkIfListIsEmpty();
-    T element = lastNode.data;
+    T element = tailNode.data;
 
     if (size == 1) {
       headNode = null;
-      lastNode = null;
+      tailNode = null;
       size = 0;
       return element;
     }
 
-    lastNode = lastNode.prevNode;
-    lastNode.nextNode = null;
+    tailNode = tailNode.prevNode;
+    tailNode.nextNode = null;
     size--;
     return element;
   }
@@ -163,7 +163,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public void clear() {
     headNode = null;
-    lastNode = null;
+    tailNode = null;
     size = 0;
   }
 
@@ -221,7 +221,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
 
   public void print(boolean reverse) {
-    Node tempNode = reverse ? lastNode : headNode;
+    Node tempNode = reverse ? tailNode : headNode;
     String order = reverse ? "Backward" : "Forward";
     System.out.print("\nList Elements (" + order + "): [ ");
     while (tempNode != null) {

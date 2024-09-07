@@ -2,8 +2,7 @@ package linkedList.singlyLinkedList;
 import java.util.Iterator;
 
 public class SinglyLinkedList<T> implements Iterable<T> {
-  private Node headNode;
-  private Node lastNode;
+  private Node headNode, tailNode;
   private int size = 0;
 
   private class Node {
@@ -20,7 +19,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public SinglyLinkedList() {
     headNode = null;
-    lastNode = null;
+    tailNode = null;
   }
 
 
@@ -42,7 +41,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
-      lastNode = newNode;
+      tailNode = newNode;
     } else {
       newNode.nextNode = headNode;
       headNode = newNode;
@@ -54,10 +53,10 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
-      lastNode = newNode;
+      tailNode = newNode;
     } else {
-      lastNode.nextNode = newNode;
-      lastNode = newNode;
+      tailNode.nextNode = newNode;
+      tailNode = newNode;
     }
   }
 
@@ -101,11 +100,11 @@ public class SinglyLinkedList<T> implements Iterable<T> {
   public T deleteLast() {
     checkIfListIsEmpty();
     Node prevNode = headNode;
-    T element = lastNode.data;
+    T element = tailNode.data;
 
     if (size == 1) {
       headNode = null;
-      lastNode = null;
+      tailNode = null;
       size = 0;
       return element;
     }
@@ -119,7 +118,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
       i++;
     }
     prevNode.nextNode = null;
-    lastNode = prevNode;
+    tailNode = prevNode;
     size--;
     return element;
   }
@@ -156,7 +155,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public void clear() {
     headNode = null;
-    lastNode = null;
+    tailNode = null;
     size = 0;
   }
 
