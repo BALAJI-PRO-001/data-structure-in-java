@@ -31,10 +31,12 @@ public class Main {
       System.out.println("Exit    \t\t\t\t\t    Press: 13");
       System.out.println("============================================================="); 
       list.print();
-      System.out.println();
-      int listIndex = 0;
-      for (int element : list) {
-        System.out.println("Index: " + (listIndex++) + " Element: " + element);
+      if (list.size() > 0) {
+        System.out.println();
+        int listIndex = 0;
+        for (int element : list) {
+          System.out.println("Index: " + (listIndex++) + " Element: " + element);
+        }
       }
       System.out.println("\nSize: " + list.size() + "\t\tSize: " + list.getSize() + "  (Using Loop)");
       System.out.println("\n============================================================="); 
@@ -117,7 +119,7 @@ public class Main {
             System.out.println("Index: " + list.indexOf(element));
             System.out.print("Press any key to exit: ");
             scanner.next();
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalStateException  e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -125,9 +127,15 @@ public class Main {
           break;
         }
         case 10: {
-          int target = getInput("\nEnter Target Element: ");
-          int newElement = getInput("Enter New Element: ");
-          list.replaceElement(target, newElement);
+          try {
+            int target = getInput("\nEnter Target Element: ");
+            int newElement = getInput("Enter New Element: ");
+            list.replaceElement(target, newElement);
+          } catch(IllegalStateException  e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
           break;
         }
         case 11: {

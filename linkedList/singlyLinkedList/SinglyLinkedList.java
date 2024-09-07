@@ -101,23 +101,23 @@ public class SinglyLinkedList<T> implements Iterable<T> {
   public T deleteLast() {
     checkIfListIsEmpty();
     Node prevNode = headNode;
+    T element = lastNode.data;
 
     if (size == 1) {
-      T element = headNode.data;
       headNode = null;
       lastNode = null;
+      size = 0;
       return element;
     }
 
     int i = 0;
-    while (true) {
+    while (prevNode != null) {
       if (i == (size - 2)) {
         break;
       }
       prevNode = prevNode.nextNode;
       i++;
     }
-    T element = lastNode.data;
     prevNode.nextNode = null;
     lastNode = prevNode;
     size--;
@@ -162,6 +162,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public T removeElement(T element) {
+    checkIfListIsEmpty();
     int index = indexOf(element);
     if (index == -1) return null;
     return deleteAtIndex(index);
@@ -169,6 +170,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public int indexOf(T element) {
+    checkIfListIsEmpty();
     Node tempNode = headNode;
     int index = 0;
     while (tempNode != null) {
@@ -184,6 +186,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void replaceElement(T target, T newElement) {
+    checkIfListIsEmpty();
     Node tempNode = headNode;
     while (tempNode != null) {
       if (tempNode.data.equals(target)) {
@@ -196,6 +199,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void reverse() {
+    checkIfListIsEmpty();
     Node currentNode = headNode;
     Node prevNode = null;
     Node nextNode = null;
