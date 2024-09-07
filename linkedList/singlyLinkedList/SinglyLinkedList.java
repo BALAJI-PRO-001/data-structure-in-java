@@ -72,19 +72,19 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     }
 
     int i = 0;
-    Node preNode = headNode;
+    Node prevNode = headNode;
     Node newNode = new Node(element);
 
-    while (true) {
+    while (prevNode != null) {
       if (i == (index - 1)) {
         break;
       }
-      preNode = preNode.nextNode;
+      prevNode = prevNode.nextNode;
       i++;
     }
 
-    newNode.nextNode = preNode.nextNode;
-    preNode.nextNode = newNode;
+    newNode.nextNode = prevNode.nextNode;
+    prevNode.nextNode = newNode;
   }
 
 
@@ -100,7 +100,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public T deleteLast() {
     checkIfListIsEmpty();
-    Node preNode = headNode;
+    Node prevNode = headNode;
 
     if (size == 1) {
       T element = headNode.data;
@@ -114,12 +114,12 @@ public class SinglyLinkedList<T> implements Iterable<T> {
       if (i == (size - 2)) {
         break;
       }
-      preNode = preNode.nextNode;
+      prevNode = prevNode.nextNode;
       i++;
     }
     T element = lastNode.data;
-    preNode.nextNode = null;
-    lastNode = preNode;
+    prevNode.nextNode = null;
+    lastNode = prevNode;
     size--;
     return element;
   }
@@ -136,19 +136,19 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     if (index == (size - 1)) {
       return deleteLast();
     }
-
+    
     int i = 0;
-    Node preNode = headNode;
-    while (true) {
+    Node prevNode = headNode;
+    while (prevNode != null) {
       if (i == (index - 1)) {
         break;
       }
-      preNode = preNode.nextNode;
+      prevNode = prevNode.nextNode;
       i++;
     }
   
-    T element = preNode.nextNode.data;
-    preNode.nextNode = preNode.nextNode.nextNode;
+    T element = prevNode.nextNode.data;
+    prevNode.nextNode = prevNode.nextNode.nextNode;
     size--;
     return element;
   }
@@ -197,15 +197,15 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public void reverse() {
     Node currentNode = headNode;
-    Node preNode = null;
+    Node prevNode = null;
     Node nextNode = null;
     while (currentNode != null) {
       nextNode = currentNode.nextNode;
-      currentNode.nextNode = preNode;
-      preNode = currentNode;
+      currentNode.nextNode = prevNode;
+      prevNode = currentNode;
       currentNode = nextNode;
     }
-    headNode = preNode;
+    headNode = prevNode;
   }
 
 
