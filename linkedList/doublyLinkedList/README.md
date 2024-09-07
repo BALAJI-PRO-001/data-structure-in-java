@@ -35,4 +35,4 @@ The first node in the list is called the head, and the last node points to null,
 
 
 #### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/Main.java)
-#### File To Study: [SinglyLinkedList.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/DoublyLinkedList.java)
+#### File To Study: [DoublyLinkedList.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/DoublyLinkedList.java)
