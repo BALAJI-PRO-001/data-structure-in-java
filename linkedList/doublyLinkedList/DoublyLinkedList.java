@@ -102,11 +102,61 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
     if (size == 1) {
       headNode = null;
+      lastNode = null;
+      size = 0;
       return element;
     }
 
     headNode = headNode.nextNode;
     headNode.prevNode = null;
+    size--;
+    return element;
+  }
+
+
+  public T deleteLast() {
+    checkIfListIsEmpty();
+    T element = lastNode.data;
+
+    if (size == 1) {
+      headNode = null;
+      lastNode = null;
+      size = 0;
+      return element;
+    }
+
+    lastNode = lastNode.prevNode;
+    lastNode.nextNode = null;
+    size--;
+    return element;
+  }
+
+
+  public T deleteAtIndex(int index) {
+    checkIfListIsEmpty();
+    validateIndex(index);
+
+    if (index == 0) {
+      return deleteFirst();
+    }
+
+    if (index == (size - 1)) {
+      return deleteLast();
+    }
+
+    Node currentNode = headNode;
+    int i = 0;
+    while (currentNode != null) {
+      if (i == index) {
+        break;
+      }
+      currentNode = currentNode.nextNode;
+      i++;
+    }
+    T element = currentNode.data;
+    currentNode.nextNode.prevNode = currentNode.prevNode;
+    currentNode.prevNode.nextNode = currentNode.nextNode;
+    size--;
     return element;
   }
 
@@ -115,6 +165,42 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     headNode = null;
     lastNode = null;
     size = 0;
+  }
+
+
+  public T removeElement(T element) {
+    checkIfListIsEmpty();
+    int index = indexOf(element);
+    if (index == -1) return null;
+    return deleteAtIndex(index);
+  }
+
+
+  public int indexOf(T element) {
+    checkIfListIsEmpty();
+    Node tempNode = headNode;
+    int index = 0;
+    while (tempNode != null) {
+      if (tempNode.data.equals(element)) {
+        return index;
+      }
+      tempNode = tempNode.nextNode;
+      index++;
+    }
+    return -1;
+  }
+
+
+  public void replaceElement(T target, T newElement) {
+    checkIfListIsEmpty();
+    Node tempNode = headNode;
+    while (tempNode != null) {
+      if (tempNode.data.equals(target)) {
+        tempNode.data = newElement;
+        return;
+      }
+      tempNode = tempNode.nextNode;
+    }
   }
 
 
@@ -135,8 +221,9 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
 
   public void print(boolean reverse) {
-    System.out.print("\nList Elements: [ ");
     Node tempNode = reverse ? lastNode : headNode;
+    String order = reverse ? "Backward" : "Forward";
+    System.out.print("\nList Elements (" + order + "): [ ");
     while (tempNode != null) {
       System.out.print(tempNode.data);
       tempNode = reverse ? tempNode.prevNode : tempNode.nextNode;

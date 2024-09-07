@@ -26,17 +26,18 @@ public class Main {
       System.out.println("Remove Element    \t\t\t\t    Press: 8");
       System.out.println("Find Index    \t\t\t\t\t    Press: 9");
       System.out.println("Replace Element    \t\t\t\t    Press: 10");
-      System.out.println("Reverse The List    \t\t\t\t    Press: 11");
-      System.out.println("Load Sample Elements    \t\t\t    Press: 12");
-      System.out.println("Exit    \t\t\t\t\t    Press: 13");
+      System.out.println("Load Sample Elements    \t\t\t    Press: 11");
+      System.out.println("Exit    \t\t\t\t\t    Press: 12");
       System.out.println("============================================================="); 
       list.print(false);
       list.print(true);
 
-      int listIndex = 0;
-      System.out.println();
-      for (int element : list) {
-        System.out.println("Index: " + (listIndex++) + " Element: " + element);
+      if (list.size() > 0) {
+        int listIndex = 0;
+        System.out.println();
+        for (int element : list) {
+          System.out.println("Index: " + (listIndex++) + " Element: " + element);
+        }
       }
       System.out.println("\nSize: " + list.size() + "\t\tSize: " + list.getSize() + "  (Using Loop)");
       System.out.println("\n============================================================="); 
@@ -79,7 +80,7 @@ public class Main {
         }
         case 5: {
           try {
-            // list.deleteLast();
+            list.deleteLast();
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -90,7 +91,7 @@ public class Main {
         case 6: {
           try {
             int index = getInput("\nEnter Index: ");
-            // list.deleteAtIndex(index);
+            list.deleteAtIndex(index);
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -105,7 +106,7 @@ public class Main {
         case 8: {
           try {
             int element = getInput("\nEnter Element: ");
-            // list.removeElement(element);
+            list.removeElement(element);
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -116,10 +117,10 @@ public class Main {
         case 9: {
           try {
             int element = getInput("\nEnter Element: ");
-            // System.out.println("Index: " + list.indexOf(element));
+            System.out.println("Index: " + list.indexOf(element));
             System.out.print("Press any key to exit: ");
             scanner.next();
-          } catch(IllegalStateException | IllegalArgumentException e) {
+          } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
             scanner.next();
@@ -127,23 +128,25 @@ public class Main {
           break;
         }
         case 10: {
-          int target = getInput("\nEnter Target Element: ");
-          int newElement = getInput("Enter New Element: ");
-          // list.replaceElement(target, newElement);
+          try {
+            int target = getInput("\nEnter Target Element: ");
+            int newElement = getInput("Enter New Element: ");
+            list.replaceElement(target, newElement);
+          } catch(IllegalStateException e) {
+            System.out.println("\nMessage: " + e.getMessage());
+            System.out.print("Press any key to exit: ");
+            scanner.next();
+          }
           break;
         }
         case 11: {
-          // list.reverse();
-          break;
-        }
-        case 12: {
           Random random = new Random();
           for (int i = 1; i <= 5; i++) {
             list.insertLast(random.nextInt(1000 - 100 + 1) + 100);
           }
           break;
         }
-        case 13: {
+        case 12: {
           System.exit(0);
           break;
         }
