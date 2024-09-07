@@ -40,8 +40,8 @@ In array, space complexity for worst case is **O(n)**.
 - There will be wastage of memory if we store less number of elements than the declared size.
 
 
-### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Main.java)
-### File To Study: [Array.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java)
+#### File To Execute: [Main.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Main.java)
+#### File To Study: [Array.java](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java)
 
 
 [More ....](https://www.javatpoint.com/data-structure-array)
