@@ -1,6 +1,8 @@
 # Circular Linked List
 A Circular Linked List is a variation of the linked list in which the last node points back to the first node, forming a circle. Unlike singly and doubly linked lists, circular linked lists do not have NULL or None as the end of the list. This allows traversal from any node back to itself or to other nodes in the list without needing to start from the head.
 
+![image](https://raw.githubusercontent.com/BALAJI-PRO-001/data-structure-in-java/main/images/cll.png)
+
 ## Advantages
 - **Efficient Traversal:** You can traverse the entire list from any node since it forms a circle, making it useful for applications where you need to repeatedly go through the list.
 - **Memory Efficiency:** No need for an extra end marker, like NULL in singly linked lists, slightly reducing memory usage.
