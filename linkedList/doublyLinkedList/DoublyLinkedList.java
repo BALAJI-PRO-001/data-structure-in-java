@@ -49,7 +49,6 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     } else {
       headNode.prevNode = newNode;
       newNode.nextNode = headNode;
-      lastNode = headNode;
       headNode = newNode;
     }
   }
@@ -69,7 +68,30 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
 
   public void insertAtIndex(int index, T element) {
-    
+    checkIfListIsEmpty();
+    validateIndex(index);
+
+    if (index == 0) {
+      insertFirst(element);
+      return;
+    }
+
+    Node newNode = new Node(element);
+    Node prevNode = headNode;
+    int i = 0;
+
+    while (prevNode != null) {
+      if (i == (index - 1)) {
+        break;
+      }      
+      prevNode = prevNode.nextNode;
+      i++;
+    }
+
+    newNode.nextNode = prevNode.nextNode;
+    prevNode.nextNode.prevNode = newNode;
+    prevNode.nextNode = newNode;
+    newNode.prevNode = prevNode;
   }
 
 
@@ -77,9 +99,22 @@ public class DoublyLinkedList<T> implements Iterable<T>{
   public T deleteFirst() {
     checkIfListIsEmpty();
     T element = headNode.data;
+
+    if (size == 1) {
+      headNode = null;
+      return element;
+    }
+
     headNode = headNode.nextNode;
     headNode.prevNode = null;
     return element;
+  }
+
+
+  public void clear() {
+    headNode = null;
+    lastNode = null;
+    size = 0;
   }
 
 

@@ -32,6 +32,12 @@ public class Main {
       System.out.println("============================================================="); 
       list.print(false);
       list.print(true);
+
+      int listIndex = 0;
+      System.out.println();
+      for (int element : list) {
+        System.out.println("Index: " + (listIndex++) + " Element: " + element);
+      }
       System.out.println("\nSize: " + list.size() + "\t\tSize: " + list.getSize() + "  (Using Loop)");
       System.out.println("\n============================================================="); 
 
@@ -73,7 +79,7 @@ public class Main {
         }
         case 5: {
           try {
-            list.deleteLast();
+            // list.deleteLast();
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -84,7 +90,7 @@ public class Main {
         case 6: {
           try {
             int index = getInput("\nEnter Index: ");
-            list.deleteAtIndex(index);
+            // list.deleteAtIndex(index);
           } catch(IllegalStateException | IllegalArgumentException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -99,7 +105,7 @@ public class Main {
         case 8: {
           try {
             int element = getInput("\nEnter Element: ");
-            list.removeElement(element);
+            // list.removeElement(element);
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");
@@ -110,7 +116,7 @@ public class Main {
         case 9: {
           try {
             int element = getInput("\nEnter Element: ");
-            System.out.println("Index: " + list.indexOf(element));
+            // System.out.println("Index: " + list.indexOf(element));
             System.out.print("Press any key to exit: ");
             scanner.next();
           } catch(IllegalStateException | IllegalArgumentException e) {
@@ -123,11 +129,11 @@ public class Main {
         case 10: {
           int target = getInput("\nEnter Target Element: ");
           int newElement = getInput("Enter New Element: ");
-          list.replaceElement(target, newElement);
+          // list.replaceElement(target, newElement);
           break;
         }
         case 11: {
-          list.reverse();
+          // list.reverse();
           break;
         }
         case 12: {
