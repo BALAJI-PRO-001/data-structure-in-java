@@ -170,7 +170,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
     while (currentNode != null && currentNode.nextNode != null) {
       if (currentNode.nextNode.data.equals(element)) {
         removedElement = currentNode.nextNode.data;
-        tailNode = currentNode.nextNode.data.equals(tailNode.data) ? currentNode : tailNode;
+        tailNode = currentNode.nextNode == tailNode ? currentNode : tailNode;
         currentNode.nextNode = currentNode.nextNode.nextNode;
         size--;
         return removedElement;

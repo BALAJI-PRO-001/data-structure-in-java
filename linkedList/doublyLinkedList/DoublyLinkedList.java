@@ -98,37 +98,37 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T deleteFirst() {
     checkIfListIsEmpty();
-    T element = headNode.data;
+    T removedElement = headNode.data;
 
     if (size == 1) {
       headNode = null;
       tailNode = null;
       size = 0;
-      return element;
+      return removedElement;
     }
 
     headNode = headNode.nextNode;
     headNode.prevNode = null;
     size--;
-    return element;
+    return removedElement;
   }
 
 
   public T deleteLast() {
     checkIfListIsEmpty();
-    T element = tailNode.data;
+    T removedElement = tailNode.data;
 
     if (size == 1) {
       headNode = null;
       tailNode = null;
       size = 0;
-      return element;
+      return removedElement;
     }
 
     tailNode = tailNode.prevNode;
     tailNode.nextNode = null;
     size--;
-    return element;
+    return removedElement;
   }
 
 
@@ -153,11 +153,11 @@ public class DoublyLinkedList<T> implements Iterable<T>{
       currentNode = currentNode.nextNode;
       i++;
     }
-    T element = currentNode.data;
+    T removedElement = currentNode.data;
     currentNode.nextNode.prevNode = currentNode.prevNode;
     currentNode.prevNode.nextNode = currentNode.nextNode;
     size--;
-    return element;
+    return removedElement;
   }
 
 
@@ -170,9 +170,44 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T removeElement(T element) {
     checkIfListIsEmpty();
-    int index = indexOf(element);
-    if (index == -1) return null;
-    return deleteAtIndex(index);
+    T removedElement = null;
+
+    if (size == 1 && headNode.data.equals(element)) {
+      removedElement = headNode.data;
+      headNode = null;
+      tailNode = null;
+      size = 0;
+      return removedElement;
+    }
+
+    if (headNode.data.equals(element)) {
+      removedElement = headNode.data;
+      headNode = headNode.nextNode;
+      headNode.prevNode = null;
+      size --;
+      return removedElement;
+    }
+
+    Node currentNode = headNode;
+    while (currentNode != null && currentNode.nextNode != null) {
+      if (currentNode.nextNode.data.equals(element)) {
+        removedElement = currentNode.nextNode.data;
+
+        if (currentNode.nextNode == tailNode) {
+          tailNode = currentNode;
+          currentNode.nextNode = null;
+        } else {
+          currentNode.nextNode = currentNode.nextNode.nextNode;
+          currentNode.nextNode.prevNode = currentNode;
+        }
+        
+        size--;
+        return removedElement;
+      }
+      currentNode = currentNode.nextNode;
+    }
+
+    return null;
   }
 
 
