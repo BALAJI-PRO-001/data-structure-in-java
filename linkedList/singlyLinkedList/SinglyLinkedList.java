@@ -89,38 +89,33 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public T deleteFirst() {
     checkIfListIsEmpty();
-    T element = headNode.data;
+    T removedElement = headNode.data;
     Node tempNode = headNode;
     headNode = tempNode.nextNode;
     size --;
-    return element;
+    return removedElement;
   }
 
 
   public T deleteLast() {
     checkIfListIsEmpty();
-    Node prevNode = headNode;
-    T element = tailNode.data;
+    Node currentNode = headNode;
+    T removedElement = tailNode.data;
 
     if (size == 1) {
       headNode = null;
       tailNode = null;
       size = 0;
-      return element;
+      return removedElement;
     }
 
-    int i = 0;
-    while (prevNode != null) {
-      if (i == (size - 2)) {
-        break;
-      }
-      prevNode = prevNode.nextNode;
-      i++;
+    while (currentNode != null && currentNode.nextNode.nextNode != null) {
+      currentNode = currentNode.nextNode;
     }
-    prevNode.nextNode = null;
-    tailNode = prevNode;
+    currentNode.nextNode = null;
+    tailNode = currentNode;
     size--;
-    return element;
+    return removedElement;
   }
 
 
@@ -146,10 +141,10 @@ public class SinglyLinkedList<T> implements Iterable<T> {
       i++;
     }
   
-    T element = prevNode.nextNode.data;
+    T removedElement = prevNode.nextNode.data;
     prevNode.nextNode = prevNode.nextNode.nextNode;
     size--;
-    return element;
+    return removedElement;
   }
 
 
@@ -162,9 +157,28 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public T removeElement(T element) {
     checkIfListIsEmpty();
-    int index = indexOf(element);
-    if (index == -1) return null;
-    return deleteAtIndex(index);
+    T removedElement = null;
+
+    if (headNode.data.equals(element)) {
+      removedElement = headNode.data;
+      headNode = headNode.nextNode;
+      size--;
+      return removedElement;
+    }
+
+    Node currentNode = headNode;
+    while (currentNode != null && currentNode.nextNode != null) {
+      if (currentNode.nextNode.data.equals(element)) {
+        removedElement = currentNode.nextNode.data;
+        tailNode = currentNode.nextNode.data.equals(tailNode.data) ? currentNode : tailNode;
+        currentNode.nextNode = currentNode.nextNode.nextNode;
+        size--;
+        return removedElement;
+      }
+      currentNode = currentNode.nextNode;
+    }
+
+    return null;
   }
 
 
