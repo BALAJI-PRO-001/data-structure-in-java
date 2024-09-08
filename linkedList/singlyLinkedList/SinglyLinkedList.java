@@ -46,6 +46,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public void insertFirst(T element) {
     checkIfElementIsNull(element);
+
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -59,6 +60,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public void insertLast(T element) {
     checkIfElementIsNull(element);
+
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -71,9 +73,9 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void insertAtIndex(int index, T element) {
-    checkIfElementIsNull(element);
     checkIfListIsEmpty();
     validateIndex(index);
+    checkIfElementIsNull(element);
     
     if (index == 0) {
       insertFirst(element);
@@ -99,6 +101,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public T deleteFirst() {
     checkIfListIsEmpty();
+
     T removedElement = headNode.data;
     Node tempNode = headNode;
     headNode = tempNode.nextNode;
@@ -109,6 +112,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
   public T deleteLast() {
     checkIfListIsEmpty();
+
     Node currentNode = headNode;
     T removedElement = tailNode.data;
 
@@ -166,8 +170,9 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public T removeElement(T element) {
-    checkIfElementIsNull(element);
     checkIfListIsEmpty();
+    checkIfElementIsNull(element);
+
     T removedElement = null;
 
     if (headNode.data.equals(element)) {
@@ -194,8 +199,9 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public int indexOf(T element) {
-    checkIfElementIsNull(element);
     checkIfListIsEmpty();
+    checkIfElementIsNull(element);
+
     Node tempNode = headNode;
     int index = 0;
     while (tempNode != null) {
@@ -211,9 +217,10 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void replaceElement(T target, T newElement) {
+    checkIfListIsEmpty();
     checkIfElementIsNull(target);
     checkIfElementIsNull(newElement);
-    checkIfListIsEmpty();
+    
     Node tempNode = headNode;
     while (tempNode != null) {
       if (tempNode.data.equals(target)) {

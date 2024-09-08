@@ -39,9 +39,18 @@ public class DoublyLinkedList<T> implements Iterable<T>{
       throw new IllegalStateException("List is empty. Please add elements to the list.");
     }
   }
+
+
+  private void checkIfElementIsNull(T element) {
+    if (element == null) {
+      throw new IllegalArgumentException("Element cannot be null.");
+    }
+  }
   
   
   public void insertFirst(T element) {
+    checkIfElementIsNull(element);
+
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -55,6 +64,8 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
 
   public void insertLast(T element) {
+    checkIfElementIsNull(element);
+
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -70,6 +81,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
   public void insertAtIndex(int index, T element) {
     checkIfListIsEmpty();
     validateIndex(index);
+    checkIfElementIsNull(element);
 
     if (index == 0) {
       insertFirst(element);
@@ -98,6 +110,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T deleteFirst() {
     checkIfListIsEmpty();
+
     T removedElement = headNode.data;
 
     if (size == 1) {
@@ -116,6 +129,7 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T deleteLast() {
     checkIfListIsEmpty();
+
     T removedElement = tailNode.data;
 
     if (size == 1) {
@@ -170,6 +184,8 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public T removeElement(T element) {
     checkIfListIsEmpty();
+    checkIfElementIsNull(element);
+
     T removedElement = null;
 
     if (size == 1 && headNode.data.equals(element)) {
@@ -213,6 +229,8 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public int indexOf(T element) {
     checkIfListIsEmpty();
+    checkIfElementIsNull(element);
+
     Node tempNode = headNode;
     int index = 0;
     while (tempNode != null) {
@@ -228,6 +246,9 @@ public class DoublyLinkedList<T> implements Iterable<T>{
 
   public void replaceElement(T target, T newElement) {
     checkIfListIsEmpty();
+    checkIfElementIsNull(target);
+    checkIfElementIsNull(newElement);
+    
     Node tempNode = headNode;
     while (tempNode != null) {
       if (tempNode.data.equals(target)) {
