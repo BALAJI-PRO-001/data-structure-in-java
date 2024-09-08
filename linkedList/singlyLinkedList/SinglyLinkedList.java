@@ -37,7 +37,15 @@ public class SinglyLinkedList<T> implements Iterable<T> {
   }
 
 
+  private void checkIfElementIsNull(T element) {
+    if (element == null) {
+      throw new IllegalArgumentException("Element cannot be null.");
+    }
+  }
+
+
   public void insertFirst(T element) {
+    checkIfElementIsNull(element);
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -50,6 +58,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void insertLast(T element) {
+    checkIfElementIsNull(element);
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -62,6 +71,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void insertAtIndex(int index, T element) {
+    checkIfElementIsNull(element);
     checkIfListIsEmpty();
     validateIndex(index);
     
@@ -156,6 +166,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public T removeElement(T element) {
+    checkIfElementIsNull(element);
     checkIfListIsEmpty();
     T removedElement = null;
 
@@ -183,6 +194,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public int indexOf(T element) {
+    checkIfElementIsNull(element);
     checkIfListIsEmpty();
     Node tempNode = headNode;
     int index = 0;
@@ -199,6 +211,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 
   public void replaceElement(T target, T newElement) {
+    checkIfElementIsNull(target);
+    checkIfElementIsNull(newElement);
     checkIfListIsEmpty();
     Node tempNode = headNode;
     while (tempNode != null) {
