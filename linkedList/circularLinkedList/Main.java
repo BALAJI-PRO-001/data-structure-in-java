@@ -69,7 +69,7 @@ public class Main {
         }
         case 4: {
           try {
-            // list.deleteFirst();
+            list.deleteFirst();
           } catch(IllegalStateException e) {
             System.out.println("\nMessage: " + e.getMessage());
             System.out.print("Press any key to exit: ");

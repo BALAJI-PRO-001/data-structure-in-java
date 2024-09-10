@@ -22,7 +22,30 @@ public class CircularLinkedList<T> implements Iterable<T> {
   }
 
 
+  private void validateIndex(int index) {
+    if (index < 0 || index >= size) {
+      throw new IllegalArgumentException("Invalid index. Index must be between 0 and " + (size - 1) + ".");
+    }
+  }
+
+
+  private void checkIfListIsEmpty() {
+    if (size == 0) {
+      throw new IllegalStateException("List is empty. Please add elements to the list.");
+    }
+  }
+
+
+  private void checkIfElementIsNull(T element) {
+    if (element == null) {
+      throw new IllegalArgumentException("Element cannot be null.");
+    }
+  }
+
+
   public void insertFirst(T element) {
+    checkIfElementIsNull(element);
+
     Node newNode = new Node(element);
     if (headNode == null) {
       headNode = newNode;
@@ -37,12 +60,62 @@ public class CircularLinkedList<T> implements Iterable<T> {
 
 
   public void insertLast(T element) {
-
+    checkIfElementIsNull(element);
+    
+    Node newNode = new Node(element);
+    if (headNode == null) {
+      headNode = newNode;
+      tailNode = newNode;
+      tailNode.nextNode = newNode;
+    } else {
+      tailNode.nextNode = newNode;
+      tailNode = newNode;
+      tailNode.nextNode = headNode;
+    }
   }
 
 
   public void insertAtIndex(int index, T element) {
+    validateIndex(index);
+    checkIfElementIsNull(element);
 
+    if (index == 0) {
+      insertFirst(element);
+      return;
+    }
+
+    Node newNode = new Node(element);
+    Node prevNode = headNode;
+    int i = 0;
+
+    do {
+      if (i == (index - 1)) {
+        break;
+      }
+      prevNode = prevNode.nextNode;
+      i++;
+    } while (prevNode != headNode);
+
+    newNode.nextNode = prevNode.nextNode;
+    prevNode.nextNode = newNode;
+  }
+
+
+  public T deleteFirst() {
+    checkIfListIsEmpty();
+    T removedElement = headNode.data;
+
+    if (size == 1) {
+      headNode = null;
+      tailNode = null;
+      size = 0;
+      return removedElement;
+    }
+    
+    headNode = headNode.nextNode.nextNode;
+    tailNode.nextNode = headNode;
+    size--;
+    return removedElement;
   }
 
 
@@ -52,27 +125,35 @@ public class CircularLinkedList<T> implements Iterable<T> {
 
   
   public int getSize() {
+    if (headNode == null) {
+      return 0;
+    }
+
     Node tempNode = headNode;
     int size = 0;
-    while (tempNode != headNode) {
+    do {
       size++;
       tempNode = tempNode.nextNode;
-    }
+    } while (tempNode != headNode);
     return size;
   }
 
 
   public void print() {
+    if (headNode == null) {
+      System.out.println("\nList Elements: [ ]");
+      return;
+    }
     System.out.print("\nList Elements: [ ");
     Node tempNode = headNode;
-    while (tempNode.nextNode == headNode) {
+    do {
       System.out.print(tempNode.data);
       tempNode = tempNode.nextNode;
 
-      if (tempNode != null) {
+      if (tempNode != headNode) {
         System.out.print(", ");
       }
-    }
+    } while (tempNode != headNode);
     System.out.println(" ]");
   }
 
@@ -81,14 +162,16 @@ public class CircularLinkedList<T> implements Iterable<T> {
   public Iterator<T> iterator() {
     return new Iterator<T>() {
       Node tempNode = headNode;
+      boolean firstIteration = true;
 
       public boolean hasNext() {
-        return tempNode.nextNode != headNode;
+        return firstIteration || tempNode != headNode;
       }
 
       public T next() {
         T element = tempNode.data;
         tempNode = tempNode.nextNode;
+        firstIteration = false;
         return element;
       }
     };
