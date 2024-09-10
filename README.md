@@ -98,7 +98,7 @@ Non-linear data structures are data structures where the data elements are not a
 
 ## Correct Order to Study
 - **Array [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/Array.java) [[readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/array/README.md)** 
-- **Linked List**
+- **Linked List [[readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/README.md)**
     - **Singly Linked List [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/singlyLinkedList/SinglyLinkedList.java) [[readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/singlyLinkedList/README.md)**
     - **Doubly Linked List [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/DoublyLinkedList.java) [[readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/doublyLinkedList/README.md)**
     - **Circular Linked List [[code]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/circularLinkedList/CircularLinkedList.java) [[readme]](https://github.com/BALAJI-PRO-001/data-structure-in-java/blob/main/linkedList/circularLinkedList/README.md)**
