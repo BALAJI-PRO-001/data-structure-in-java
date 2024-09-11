@@ -112,9 +112,32 @@ public class CircularLinkedList<T> implements Iterable<T> {
       return removedElement;
     }
     
-    headNode = headNode.nextNode.nextNode;
+    headNode = headNode.nextNode;
     tailNode.nextNode = headNode;
     size--;
+    return removedElement;
+  }
+
+
+  public T deleteLast() {
+    checkIfListIsEmpty();
+    T removedElement = tailNode.data;
+
+    if (size == 1) {
+      headNode = null;
+      tailNode = null;
+      size = 0;
+      return removedElement;
+    }
+
+    Node prevNode = headNode;
+    while (prevNode.nextNode.nextNode != headNode) {
+      prevNode = prevNode.nextNode;
+    }
+    prevNode.nextNode = headNode;  
+    tailNode = prevNode;
+    tailNode.nextNode = headNode;
+    size--;  
     return removedElement;
   }
 
