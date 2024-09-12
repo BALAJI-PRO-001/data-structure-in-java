@@ -142,6 +142,86 @@ public class CircularLinkedList<T> implements Iterable<T> {
   }
 
 
+  public T deleteAtIndex(int index) {
+    checkIfListIsEmpty();
+    validateIndex(index);
+
+    if (index == 0) {
+      return deleteFirst();
+    }
+
+    if (index == (size - 1)) {
+      return deleteLast();
+    }
+
+    Node prevNode = headNode;
+    int i = 0;
+    while (prevNode.nextNode != headNode) {
+      if (i == (index - 1)) {
+        break;
+      }
+      prevNode = prevNode.nextNode;
+      i++;
+    }
+    T removedElement = prevNode.nextNode.data;
+    prevNode.nextNode = prevNode.nextNode.nextNode;
+    size--;
+    return removedElement;
+  }
+
+
+  public void clear() {
+    headNode = null;
+    tailNode = null;
+    size = 0;
+  }
+
+
+  public T removeElement(T element) {
+    checkIfListIsEmpty();
+    checkIfElementIsNull(element);
+
+    T removedElement = null;
+
+    if (size == 1 && headNode.data.equals(element)) {
+      headNode = null;
+      tailNode = null;
+      size = 0;
+      return removedElement;
+    }
+
+    if (headNode.data.equals(element)) {
+      removedElement = headNode.data;
+      headNode = headNode.nextNode;
+      tailNode.nextNode = headNode;
+      size--;
+      return removedElement;
+    }
+
+    Node currentNode = headNode;
+    while (currentNode.nextNode != headNode) {
+      if (currentNode.nextNode.data.equals(element)) {
+        removedElement = currentNode.nextNode.data;
+
+        if (currentNode.nextNode.data.equals(tailNode.data)) {
+          tailNode = currentNode;
+          tailNode.nextNode = headNode;
+          size--;
+          return removedElement;
+        }
+
+        currentNode.nextNode = currentNode.nextNode.nextNode;
+        size--;
+        return removedElement;
+      }
+      currentNode = currentNode.nextNode;
+    }
+
+    return null;
+  }
+
+  
+
   public int size() {
     return this.size;
   }
